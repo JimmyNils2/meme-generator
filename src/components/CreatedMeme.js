@@ -5,6 +5,7 @@ import { useClipboard } from 'use-clipboard-copy';
 export const CreatedMeme = () => {
 
   const [copied,setCopied] = useState(false);
+  const [downloaded,setDownloaded] = useState(false);
 
   //To navigate by URL
   const navigate = useNavigate();
@@ -34,6 +35,8 @@ export const CreatedMeme = () => {
       a.click();
       a.remove();
       console.log(tempURL);
+      URL.revokeObjectURL(tempURL);
+      setDownloaded(true);
     })
   }
 
@@ -41,8 +44,8 @@ export const CreatedMeme = () => {
     <div className='container'>
       <div className="buttons">
         <button onClick={() => navigate('/')} className='button'>Create More Memes</button>
-        <button onClick={copyLink} className='button button__small button__gray'>{copied ? 'Link copied!' : 'Copy link!'}</button>
-        <button className="button button__small button__gray" onClick={downloadImg}>Download</button>
+        <button onClick={copyLink} className='button button__small button__gray'>{copied ? 'Link copied' : 'Copy link'}</button>
+        <button className="button button__small button__gray" onClick={downloadImg}>{downloaded ? 'Downloaded' : 'Download'}</button>
       </div>
       {url && <img src={url} alt='Created Meme' className='meme'/>}
     </div>
