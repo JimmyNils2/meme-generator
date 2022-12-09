@@ -72,8 +72,8 @@ export const Meme = () => {
     const formData = new FormData();
 
     //Set credentials
-    formData.append('username','jimmynils2');
-    formData.append('password','myPass123');
+    formData.append('username',process.env.user);
+    formData.append('password',process.env.pass);
     formData.append('template_id', currentMeme.id);
 
     //Set meme captions
