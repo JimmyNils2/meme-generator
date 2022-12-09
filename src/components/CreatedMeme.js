@@ -23,11 +23,26 @@ export const CreatedMeme = () => {
     setCopied(true);
   }
 
+  //Download img
+  const downloadImg = () => {
+    fetch(url).then(res => res.blob()).then(file => {
+      let tempURL = URL.createObjectURL(file);
+      let a = document.createElement('a');
+      a.href = tempURL;
+      a.download = 'meme';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      console.log(tempURL);
+    })
+  }
+
   return (
     <div className='container'>
       <div className="buttons">
         <button onClick={() => navigate('/')} className='button'>Create More Memes</button>
         <button onClick={copyLink} className='button button__small button__gray'>{copied ? 'Link copied!' : 'Copy link!'}</button>
+        <button className="button button__small button__gray" onClick={downloadImg}>Download</button>
       </div>
       {url && <img src={url} alt='Created Meme' className='meme'/>}
     </div>

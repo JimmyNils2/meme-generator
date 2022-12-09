@@ -103,10 +103,8 @@ export const Meme = () => {
       <div className="container">
         <div className="buttons">
           <button className="button" onClick={createMeme}>Create Meme</button>
-          <div className="buttons-small prev">
               <button className="button button__small button__gray" onClick={checkMemeIndex}>Previous</button>
               <button className="button button__small button__gray" onClick={() => setMemeIndex(memeIndex + 1)}>Next</button>
-          </div>
         </div>
         <div className="captions">
           {
