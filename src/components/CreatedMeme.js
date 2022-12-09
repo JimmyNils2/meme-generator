@@ -43,7 +43,7 @@ export const CreatedMeme = () => {
   return (
     <div className='container'>
       <div className="buttons">
-        <button onClick={() => navigate('/')} className='button'>Create More Memes</button>
+        <button onClick={() => navigate('/')} className='button'>Create more memes</button>
         <button onClick={copyLink} className='button button__small button__gray'>{copied ? 'Link copied' : 'Copy link'}</button>
         <button className="button button__small button__gray" onClick={downloadImg}>{downloaded ? 'Downloaded' : 'Download'}</button>
       </div>
