@@ -54,7 +54,8 @@
 input {
   display: block;
   padding: 10px;
-  width: 350px;
+  width: 90%;
+  max-width: 320px;
   margin: auto;
   margin-top: 15px;
   padding: .7rem .9rem;
