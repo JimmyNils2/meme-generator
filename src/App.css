@@ -1,38 +1,216 @@
-.App {
-  text-align: center;
+/* fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* Variables CSS */
+:root{
+    /* Colors */
+    /* blue: hsl(207, 90%, 61%) */
+    
+    --hue: 143;
+    --sat: 76%; 
+    --lig: 40%;
+
+
+    --title-color: hsl(var(--hue), 12%, 95%);
+    --text-color: hsl(var(--hue), 12%, 75%);
+    --body-color: hsl(var(--hue), 100%, 0%);
+    --container-color: hsl(var(--hue), 24%, 12%);
+    --first-color: hsl(var(--hue), var(--sat), var(--lig));
+    --first-color-dark: hsl(var(--hue), 100%, var(--lig));
+    --first-color-alt: hsl(var(--hue), var(--sat), 75%); 
+    --text-color-light: hsl(var(--hue), 8%, 75%);
+    --text-color-lighten: hsl(var(--hue), 8%, 92%);
+
+
+    /* fuentes del archivo */
+    --body-font: 'Poppins', sans-serif;;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem; 
+
+    /* Reponsive typografia */
+    @media screen and (min-width: 968px){
+        :root {
+            
+            --h2-font-size: 1.5rem;
+            --h3-font-size: 1.25rem;
+            --normal-font-size: 1rem;
+            --small-font-size: .875rem;
+            --smaller-font-size: .813rem;
+            }
+    }
+}
+.meme {
+  max-width: 500px;
+  max-height: 500px;
+  margin: auto;
+  margin-top: 20px;
+  display: block;
+  margin-bottom: 20px;
+}
+input {
+  display: block;
+  padding: 10px;
+  width: 350px;
+  margin: auto;
+  margin-top: 15px;
+  padding: .7rem .9rem;
+  border-radius: .5rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Selectores */
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body{
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--body-color);
+    color: var(--text-color);
+    transition: .3s;    /* For animation dark mode*/
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h1,h2,h3{
+    color: var(--title-color);
+    font-weight: 600;
 }
 
-.App-link {
-  color: #61dafb;
+ul{
+    list-style: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+a{
+    text-decoration: none;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+/* THEME */
+.change-theme{
+    position: absolute;
+    top: 1.5rem;
+    right: 0;
+    font-size: 1.25rem;
+    color: var(--title-color);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.change-theme:hover{
+    color: var(--first-color);
+}
+
+/* Variables Dark theme */
+body.dark-theme{
+    --title-color: hsl(var(--hue), 12%, 95%);
+    --text-color: hsl(var(--hue), 12%, 75%);
+    --body-color: hsl(var(--hue), 100%, 0%);
+    --container-color: hsl(var(--hue), 24%, 12%);
+}
+
+/* Classes reusables */
+.container{
+    max-width: 968px;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+.buttons,
+.buttons-small{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.buttons{
+    column-gap: 1rem;
+}
+
+.buttons-small{
+    column-gap: 0.25rem;
+}
+
+/* Botones */
+.button{
+    display: inline-flex;
+    align-items: center;
+    column-gap: .5rem;
+    background-color: var(--first-color);
+    color: #fff;
+    padding: 1.15rem 1.5rem;
+    border-radius: .5rem;
+    transition: .3s;
+    box-shadow: 0 8px 24px hsla(var(--hue), var(--sat), var(--lig), .25);
+    border: none;
+    font-size: var(--normal-font-size);
+    margin-bottom: .25rem;
+    font-weight: 550;
+}
+
+.button:hover{
+    background-color: var(--first-color-dark);
+    cursor: pointer;
+}
+
+.button__small{
+    padding: .75rem;
+    box-shadow: none;
+    min-width: 80px;
+    justify-content: center;
+}
+.button__gray{
+    background-color: var(--text-color-lighten);
+    color: var(--body-color);
+}
+
+.button__gray:hover{
+    background-color:var(--text-color-light)
+}
+
+/* scroll bar */
+::-webkit-scrollbar{
+    width: .6rem;
+    border-radius: .5rem;
+    background-color: hsl(var(--hue), 8%, 66%);
+}
+
+::-webkit-scrollbar-thumb{
+    border-radius: .5rem;
+    background-color: hsl(var(--hue), 8%, 54%);
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background-color: hsl(var(--hue), 8%, 44%);
+}
+
+/* BREAKPOINTS */
+/* For smmal devices */
+@media screen and (max-width: 320px){
+    .container{
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+}
+
+/* For large devices */
+@media screen and (min-width: 992px){
+    .container{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .change-theme{
+        top: 2.5rem;
+        right: 2.5rem;
+    }
 }
