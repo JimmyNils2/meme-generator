@@ -101,7 +101,6 @@ export const Meme = () => {
   return (
     memes.length ?
       <div className="container">
-        prueba {process.env.REACT_APP_MEME_NAME}
         <div className="buttons">
           <button className="button" onClick={createMeme}>Create Meme</button>
               <button className="button button__small button__gray" onClick={checkMemeIndex}>Previous</button>
