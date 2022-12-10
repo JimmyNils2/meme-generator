@@ -72,8 +72,8 @@ export const Meme = () => {
     const formData = new FormData();
 
     //Set credentials
-    formData.append('username','jimmynils2');
-    formData.append('password','myPass123');
+    formData.append('username', `${process.env.REACT_APP_MEME_USER}`);
+    formData.append('password',`${process.env.REACT_APP_MEME_PASS}`);
     formData.append('template_id', currentMeme.id);
 
     //Set meme captions
@@ -101,6 +101,7 @@ export const Meme = () => {
   return (
     memes.length ?
       <div className="container">
+        prueba {process.env.REACT_APP_MEME_NAME}
         <div className="buttons">
           <button className="button" onClick={createMeme}>Create Meme</button>
               <button className="button button__small button__gray" onClick={checkMemeIndex}>Previous</button>
