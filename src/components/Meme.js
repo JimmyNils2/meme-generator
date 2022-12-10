@@ -110,7 +110,7 @@ export const Meme = () => {
           {
             captions.map((caption, index) => {
               return(
-                <input onChange={(e) => updateCaption(e,index)} key={index}/>
+                <input onChange={(e) => updateCaption(e,index)} key={index} placeholder={`add caption ${index+1}`}/>
               )
             })
           }
